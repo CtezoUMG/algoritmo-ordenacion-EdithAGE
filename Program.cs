@@ -10,7 +10,9 @@ Console.WriteLine($"--- Auditoría de Algoritmos .NET 10 ---");
 Console.WriteLine($"Procesando: {CANTIDAD_ELEMENTOS:N0} números.");
 
 // 2. El alumno implementa esto en la clase Algoritmo
-ordenador.BubbleSort(datos);
+// Usar QuickSort por rendimiento. Si prefieres MergeSort o BubbleSort,
+// cambia la llamada a ordenador.MergeSort(datos) o ordenador.BubbleSort(datos).
+ordenador.QuickSort(datos);
 
 // 3. Validación de integridad
 if (ordenador.EstaOrdenado(datos))
