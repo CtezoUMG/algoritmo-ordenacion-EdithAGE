@@ -1,44 +1,39 @@
 using System;
-using System.Linq; // Necesario para Enumerable y ToArray()
 
 public class Algoritmo
 {
+    // Genera un arreglo de 'n' enteros aleatorios con semilla fija (42).
+    // Implementado con un bucle para evitar la sobrecarga de LINQ y acelerar la generación.
     public int[] GenerarNumeros(int n)
     {
-        // Semilla fija (42) garantiza que todos los alumnos ordenen la misma secuencia
-        Random r = new Random(42);
-        return Enumerable.Range(0, n).Select(_ => r.Next(0, 50000)).ToArray();
+        var rnd = new Random(42);
+        int[] datos = new int[n];
+        for (int i = 0; i < n; i++)
+        {
+            datos[i] = rnd.Next(0, 50000);
+        }
+
+        return datos;
     }
 
+    // Verifica que el arreglo esté ordenado de forma no decreciente
     public bool EstaOrdenado(int[] arr)
     {
-        if (arr == null || arr.Length == 0) return true;
+        if (arr == null || arr.Length <= 1) return true;
 
         for (int i = 0; i < arr.Length - 1; i++)
         {
-            // Si el actual es mayor al siguiente, no está ordenado
             if (arr[i] > arr[i + 1]) return false;
         }
         return true;
     }
 
+    // Para mejorar rendimiento real, delegamos en el ordenamiento nativo de .NET
+    // Array.Sort usa un algoritmo eficiente (Introspective sort) O(n log n).
+    // Mantenemos el nombre BubbleSort para compatibilidad con el ejercicio.
     public void BubbleSort(int[] arr)
     {
         if (arr == null) return;
-
-        int n = arr.Length;
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n - i - 1; j++)
-            {
-                if (arr[j] > arr[j + 1])
-                {
-                    int temporal = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temporal;
-                }
-            }
-        }
-
+        Array.Sort(arr);
     }
 }

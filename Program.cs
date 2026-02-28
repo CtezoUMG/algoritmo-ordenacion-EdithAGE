@@ -21,6 +21,6 @@ else
 {
     Console.WriteLine("VALIDATION: FAILED");
     Environment.Exit(1); // Crucial para el Autograding de GitHub
-}
+}//
 
 // La clase `Algoritmo` se implementa en el archivo `Algoritmo.cs`.
