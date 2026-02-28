@@ -1,4 +1,4 @@
-using System;
+using System; //nos da chance de
 
 const int CANTIDAD_ELEMENTOS = 10000;
 Algoritmo ordenador = new Algoritmo();
@@ -22,3 +22,5 @@ else
     Console.WriteLine("VALIDATION: FAILED");
     Environment.Exit(1); // Crucial para el Autograding de GitHub
 }
+
+// La clase `Algoritmo` se implementa en el archivo `Algoritmo.cs`.
